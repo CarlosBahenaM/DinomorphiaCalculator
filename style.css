@@ -6,6 +6,8 @@
 html {
   font-size: 62.5%;
   font-family: 'Quando', serif;
+  background-image: url(./image/dinomorphia-fondo.jpg);
+  background-size: 100% 100%;
 }
 h1 {
   font-size: 3rem;
