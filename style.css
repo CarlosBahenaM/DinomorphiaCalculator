@@ -8,6 +8,8 @@ html {
   font-family: 'Quando', serif;
   background-image: url(./image/dinomorphia-fondo.jpg);
   background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 650px;
 }
 h1 {
   background-color: #00ffa7d9;
@@ -18,6 +20,7 @@ h1 {
 button {
   width: 3rem;
   height: 3rem;
+  /* border-radius: 10px; */
 }
 
 /* PUNTOS DE VIDA DE JUGADORES */
