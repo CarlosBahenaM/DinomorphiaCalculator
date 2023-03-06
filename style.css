@@ -38,11 +38,16 @@ button {
 #pay-half {
   width: 100%;
 }
+
 #players-operador__dino > button {
   margin: .2rem;
+  font-size: 2rem;
+  height: 5vh;
 }
 #players-operador__oponent > button {
   margin: .2rem;
+  font-size: 2rem;
+  height: 5vh;
 }
 #input-numbers {
   border: 1px solid;
@@ -67,12 +72,13 @@ button {
   border: 1px solid green;
   width: 90%;
   height: 4vh;
-  margin: 1rem 0.2rem;
+  margin: .5rem 0.2rem;
   font-size: 2rem;
 }
 .dinomorphia-button > button {
   width: 30%;
   height: 5rem;
+  font-size: 1.6rem;
 }
 
 /* BUTTON SECCION */
@@ -94,4 +100,6 @@ button {
 }
 #calculator-numbers > button {
   width: 100%;
+  height: 4rem;
+  font-size: 3rem;
 }
