@@ -10,6 +10,8 @@ html {
   background-size: 100% 100%;
 }
 h1 {
+  background-color: #00ffa7d9;
+  color: white;
   font-size: 3rem;
   text-align: center;
 }
@@ -56,6 +58,7 @@ button {
   border-radius: 10%;
   width: 40%;
   height: 5vh;
+  background-color: wheat;
 }
 
 #players-operador {
@@ -76,6 +79,8 @@ button {
   height: 4vh;
   margin: .5rem 0.2rem;
   font-size: 2rem;
+  background-color: #00ffa7d9;
+  text-align: center;
 }
 .dinomorphia-button > button {
   width: 30%;
