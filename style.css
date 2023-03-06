@@ -1,0 +1,97 @@
+:root {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Quando', serif;
+}
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+button {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* PUNTOS DE VIDA DE JUGADORES */
+.lifepoints-players {
+  display: flex;
+}
+
+
+.lifepoints-players > div {
+  border: 2px solid #f3b473;
+  border-radius: 23%;
+  padding: 2rem 0.5rem;
+  width: 50%;
+  text-align: center;
+  font-size: 3em;
+  margin: 1rem;
+  background-color: #6a9af3;
+  color: white;
+}
+
+/* operadores de puntos de vida */
+#pay-half {
+  width: 100%;
+}
+#players-operador__dino > button {
+  margin: .2rem;
+}
+#players-operador__oponent > button {
+  margin: .2rem;
+}
+#input-numbers {
+  border: 1px solid;
+  border-radius: 10%;
+  width: 40%;
+  height: 5vh;
+}
+
+#players-operador {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+/* DINOMORPHIA BOTONES  */
+
+.dinomorphia-button, .dinomorphia-results {
+  display: flex;
+  justify-content: space-around;
+}
+.dinomorphia-results > p {
+  border: 1px solid green;
+  width: 90%;
+  height: 4vh;
+  margin: 1rem 0.2rem;
+  font-size: 2rem;
+}
+.dinomorphia-button > button {
+  width: 30%;
+  height: 5rem;
+}
+
+/* BUTTON SECCION */
+.correctors {
+  display: flex;
+  justify-content: space-around;
+}
+.correctors > button {
+  width: 90%;
+  margin: 0.2rem
+}
+
+
+#calculator-numbers {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 5fr);
+  gap: 1rem ;
+}
+#calculator-numbers > button {
+  width: 100%;
+}
