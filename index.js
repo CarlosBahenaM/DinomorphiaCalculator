@@ -183,6 +183,8 @@ display.value = "";
 temp = 0;
 });
 
+
+// BOTONES DE CALCULO DE DINOMORPHIA
 buttonPunisherAtk.addEventListener('click', () => {
   diffLifepoints = (lifePointsOponent.value - lifePointsDino.value);
 if (diffLifepoints < 0) {
@@ -200,3 +202,7 @@ display.value = 0;
                      : (display.value = DmgCalculate, temp = DmgCalculate);
     }
   )
+
+  //BOTONES BACK Y RESET
+
+  
