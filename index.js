@@ -2,6 +2,8 @@ let displayValue = 0;
 let valorA = 0;
 let valorB = 0;
 let temp = 0;
+let punisherAtk = 3500;
+let effRex = lifePointsDino;
 const button1 = document.querySelector('.button-1');
 const button2 = document.querySelector('.button-2');
 const button3 = document.querySelector('.button-3');
@@ -16,6 +18,7 @@ const button00 = document.querySelector('.button-00');
 const button000 = document.querySelector('.button-000');
 
 const buttonKentreAtk = document.querySelector('.button-kentre-atk');
+const KentreginaAtkResult = document.querySelector('.dinomorphia-result__kentre');
 const buttonPunisherAtk = document.querySelector('.button-punisher-atk');
 const buttonKentreDmg = document.querySelector('.button-kentre-dmg');
 
@@ -36,6 +39,16 @@ const display =document.querySelector('#input-numbers');
 let lifePointsDino = document.querySelector('.lifepoints-dinoplayer');
 let lifePointsOponent = document.querySelector('.lifepoints-oponent');
 
+// funcion que calcula atk de kentregina
+function calculateAtkKentregina() {
+
+  let kentreginaAtk = 4000;
+  let newKentreginaAtk = kentreginaAtk - lifePointsDino.value;
+  if(newKentreginaAtk < 0) {
+    newKentreginaAtk = 0;
+  }
+  KentreginaAtkResult.textContent = newKentreginaAtk;
+}
 
 // BOTONES 1 AL 9
 
@@ -96,21 +109,23 @@ buttonDinoAdd.addEventListener('click', () => {
 let lifepoints = parseInt(lifePointsDino.value) + parseInt(temp);
 lifePointsDino.value = lifepoints
 display.value = "";
+calculateAtkKentregina()
 })
 
             //resta
 buttonDinoRest.addEventListener('click', () => {
   let lifepoints = parseInt(lifePointsDino.value) - parseInt(temp);
   if(lifepoints <= 0) {
-    lifepoints = 0;
-    lifePointsDino.value = lifepoints
-    display.value = "";
-    alert('Ha perdido el Dinochato');
-  } else {
+      lifepoints = 0;
+      lifePointsDino.value = lifepoints
+      display.value = "";
+      alert('Ha perdido el Dinochato');
+    } else {
 
-    lifePointsDino.value = lifepoints
-    display.value = "";
-  }
+      lifePointsDino.value = lifepoints
+      display.value = "";
+    }
+    calculateAtkKentregina();
   })
 
   buttonDinoHalf.addEventListener('click', () => {
@@ -120,6 +135,7 @@ buttonDinoRest.addEventListener('click', () => {
     }
     lifePointsDino.value = lifePoints;
     display.value = "";
+    calculateAtkKentregina();
     });
 
   //oponent
@@ -165,5 +181,6 @@ temp = 0;
 });
 
 
+// if (lifePointsDino !== 8000)
 
-
+// })
