@@ -29,3 +29,67 @@ const buttonDinoHalf = document.querySelector('.button-dino-half');
 const buttonOpRest = document.querySelector('.button-op-rest');
 const buttonOpAdd = document.querySelector('.button-op-add');
 const buttonOpHalf = document.querySelector('.button-op-half');
+
+const display =document.querySelector('#input-numbers');
+
+// lifepoints
+const lifePointsDino = document.querySelector('.lifepoints-dinoplayer');
+const lifePointsOponent = document.querySelector('.lifepoints-oponent');
+
+
+// BOTONES 1 AL 9
+
+button1.addEventListener('click', () => {
+  display.value += button1.textContent;
+  temp = Number(display.value);
+});
+button2.addEventListener('click', () => {
+  display.value += button2.textContent;
+  temp = Number(display.value);
+})
+button3.addEventListener('click', () => {
+  display.value += button3.textContent;
+  temp = Number(display.value);
+});
+button4.addEventListener('click', () => {
+  display.value += button4.textContent;
+  temp = Number(display.value);
+});
+button5.addEventListener('click', () => {
+  display.value += button5.textContent;
+  temp = Number(display.value);
+});
+button6.addEventListener('click', () => {
+  display.value += button6.textContent;
+  temp = Number(display.value);
+});
+button7.addEventListener('click', () => {
+  display.value += button7.textContent;
+  temp = Number(display.value);
+});
+button8.addEventListener('click', () => {
+  display.value += button8.textContent;
+  temp = Number(display.value);
+});
+button9.addEventListener('click', () => {
+  display.value += button9.textContent;
+  temp = Number(display.value);
+});
+button0.addEventListener('click', () => {
+  display.value += button0.textContent;
+  temp = Number(display.value);
+});
+button00.addEventListener('click', () => {
+  display.value += button00.textContent;
+  temp = Number(display.value);
+});
+button000.addEventListener('click', () => {
+  display.value += button000.textContent;
+  temp = Number(display.value);
+});
+
+// BOTONES OPERADORES POR PLAYER
+
+buttonDinoAdd.addEventListener('click', () => {
+  Number()
+})
