@@ -124,6 +124,8 @@ buttonDinoRest.addEventListener('click', () => {
 
   //oponent
 
+
+      //suma
   buttonOpAdd.addEventListener('click', () => {
     let lifepoints = parseInt(lifePointsOponent.value) + parseInt(temp);
     lifePointsOponent.value = lifepoints
@@ -131,26 +133,33 @@ buttonDinoRest.addEventListener('click', () => {
     })
     
                 //resta
-    buttonOpRest.addEventListener('click', () => {
-      let lifepoints = parseInt(lifePointsOponent.value) - parseInt(temp);
-      if(lifepoints <= 0) {
-        lifepoints = 0;
-        lifePointsOponent.value = lifepoints
-        display.value = 0;
-        alert('Los DinoFornicadores ganaron');
-      } else {
-    
-        lifePointsOponent.value = lifepoints
-        display.value = 0;
+  buttonOpRest.addEventListener('click', () => {
+    let lifepoints = parseInt(lifePointsOponent.value) - parseInt(temp);
+    if(lifepoints <= 0) {
+      lifepoints = 0;
+      lifePointsOponent.value = lifepoints
+      display.value = 0;
+      alert('Los DinoFornicadores ganaron');
+    } else {
+  
+      lifePointsOponent.value = lifepoints
+      display.value = 0;
+    }
+    })
+  
+    //half
+    buttonOpHalf.addEventListener('click', () => {
+      let lifePoints = parseInt(lifePointsOponent.value / 2);
+      if(lifePoints === 0) {
+        lifePoints = 1;
       }
-      })
-    
-      buttonOpHalf.addEventListener('click', () => {
-        let lifePoints = parseInt(lifePointsOponent.value / 2);
-        if(lifePoints === 0) {
-          lifePoints = 1;
-        }
-        lifePointsOponent.value = lifePoints;
-        display.value = 0;
-        });
-    
+      lifePointsOponent.value = lifePoints;
+      display.value = 0;
+      });
+
+// botones clear y back
+
+buttonClear.addEventListener('click', () => {
+display.value = 0;
+temp = 0;
+});
