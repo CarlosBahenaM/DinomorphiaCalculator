@@ -61,9 +61,11 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 50%;
 }
 .display-backs > button {
   width: 30%;
+  padding: 0;
 }
 
 
