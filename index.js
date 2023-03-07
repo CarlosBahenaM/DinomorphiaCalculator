@@ -91,5 +91,5 @@ button000.addEventListener('click', () => {
 // BOTONES OPERADORES POR PLAYER
 
 buttonDinoAdd.addEventListener('click', () => {
-  Number()
+console.log(lifePointsDino.textContent)
 })

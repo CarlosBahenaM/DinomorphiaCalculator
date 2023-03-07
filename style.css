@@ -29,7 +29,7 @@ button {
 }
 
 
-.lifepoints-players > div {
+.lifepoints-players > input {
   border: 2px solid #f3b473;
   border-radius: 23%;
   padding: 2rem 0.5rem;
