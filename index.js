@@ -2,8 +2,9 @@ let displayValue = 0;
 let valorA = 0;
 let valorB = 0;
 let temp = 0;
+let diffLifepoints = 0;
 let punisherAtk = 3500;
-let effRex = lifePointsDino;
+let newPunisherAtk = punisherAtk + diffLifepoints;
 const button1 = document.querySelector('.button-1');
 const button2 = document.querySelector('.button-2');
 const button3 = document.querySelector('.button-3');
@@ -20,6 +21,7 @@ const button000 = document.querySelector('.button-000');
 const buttonKentreAtk = document.querySelector('.button-kentre-atk');
 const KentreginaAtkResult = document.querySelector('.dinomorphia-result__kentre');
 const buttonPunisherAtk = document.querySelector('.button-punisher-atk');
+const punisherAtkresult = document.querySelector('.dinomorphia-result__punisher');
 const buttonKentreDmg = document.querySelector('.button-kentre-dmg');
 
 const buttonBack = document.querySelector('.button-back');
@@ -180,7 +182,10 @@ display.value = "";
 temp = 0;
 });
 
+buttonPunisherAtk.addEventListener('click', () => {
+  diffLifepoints = (lifePointsOponent.value - lifePointsDino.value);
+  newPunisherAtk += diffLifepoints;
 
-// if (lifePointsDino !== 8000)
-
-// })
+  
+  punisherAtkresult.textContent = newPunisherAtk;
+})
