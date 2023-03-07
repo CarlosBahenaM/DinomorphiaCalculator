@@ -33,8 +33,8 @@ const buttonOpHalf = document.querySelector('.button-op-half');
 const display =document.querySelector('#input-numbers');
 
 // lifepoints
-const lifePointsDino = document.querySelector('.lifepoints-dinoplayer');
-const lifePointsOponent = document.querySelector('.lifepoints-oponent');
+let lifePointsDino = document.querySelector('.lifepoints-dinoplayer');
+let lifePointsOponent = document.querySelector('.lifepoints-oponent');
 
 
 // BOTONES 1 AL 9
@@ -86,10 +86,16 @@ button00.addEventListener('click', () => {
 button000.addEventListener('click', () => {
   display.value += button000.textContent;
   temp = Number(display.value);
+  console.log(display.value);
 });
 
 // BOTONES OPERADORES POR PLAYER
 
 buttonDinoAdd.addEventListener('click', () => {
-console.log(lifePointsDino.textContent)
+let lifepoints = parseInt(lifePointsDino.value) + parseInt(temp);
+console.log(lifepoints);
+lifePointsDino.value = lifepoints
+display.value = 0;
+
 })
+
