@@ -194,10 +194,14 @@ if (diffLifepoints < 0) {
 
 buttonKentreDmg.addEventListener('click', () => {
 display.value = 0;
-  if(lifePointsDino.value < KentreginaAtkResult.textContent) {
-    display.value = KentreginaAtkResult.textContent - lifePointsDino.value;
-    
-    temp = display.value;
-  }
-
+console.log( KentreginaAtkResult.textContent - lifePointsDino.value);
+    let DmgCalculate = KentreginaAtkResult.textContent - lifePointsDino.value;
+    if(DmgCalculate < 0) {
+      temp = 0;
+      display.value = 0;
+    } else {
+      display.value = DmgCalculate;
+      temp = DmgCalculate;
+    }
+  
 })
