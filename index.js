@@ -184,8 +184,9 @@ temp = 0;
 
 buttonPunisherAtk.addEventListener('click', () => {
   diffLifepoints = (lifePointsOponent.value - lifePointsDino.value);
+if (diffLifepoints < 0) {
+  diffLifepoints = Math.abs(diffLifepoints);
+}
   newPunisherAtk += diffLifepoints;
-
-  
   punisherAtkresult.textContent = newPunisherAtk;
-})
+});
