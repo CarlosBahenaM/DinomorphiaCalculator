@@ -25,7 +25,7 @@ const punisherAtkresult = document.querySelector('.dinomorphia-result__punisher'
 const buttonKentreDmg = document.querySelector('.button-kentre-dmg');
 const kentreRexAtkDmg = document.querySelector('.dinomorphia-result__dmgkentre');
 
-const buttonBack = document.querySelector('.button-back');
+const buttonBack = document.querySelector('.button-c');
 const buttonClear = document.querySelector('.button-clear');
 
 const buttonDinoRest = document.querySelector('.button-dino-rest');
@@ -194,14 +194,9 @@ if (diffLifepoints < 0) {
 
 buttonKentreDmg.addEventListener('click', () => {
 display.value = 0;
-console.log( KentreginaAtkResult.textContent - lifePointsDino.value);
+// console.log( KentreginaAtkResult.textContent - lifePointsDino.value);
     let DmgCalculate = KentreginaAtkResult.textContent - lifePointsDino.value;
-    if(DmgCalculate < 0) {
-      temp = 0;
-      display.value = 0;
-    } else {
-      display.value = DmgCalculate;
-      temp = DmgCalculate;
+    DmgCalculate < 0 ? ( (temp = 0), (display.value = 0))
+                     : (display.value = DmgCalculate, temp = DmgCalculate);
     }
-  
-})
+  )

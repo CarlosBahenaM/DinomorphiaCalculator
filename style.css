@@ -56,9 +56,21 @@ button {
   font-size: 2rem;
   height: 5vh;
 }
+
+.display-backs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.display-backs > button {
+  width: 30%;
+}
+
+
+
 #input-numbers {
   border: 1px solid;
-  width: 40%;
+  width: 100%;
   height: 5vh;
   background-color: wheat;
 }
