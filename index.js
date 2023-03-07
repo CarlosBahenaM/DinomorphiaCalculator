@@ -101,8 +101,16 @@ display.value = 0;
             //resta
 buttonDinoRest.addEventListener('click', () => {
   let lifepoints = parseInt(lifePointsDino.value) - parseInt(temp);
-  lifePointsDino.value = lifepoints
-  display.value = 0;
+  if(lifepoints <= 0) {
+    lifepoints = 0;
+    lifePointsDino.value = lifepoints
+    display.value = 0;
+    alert('Ha perdido el Dinochato');
+  } else {
+
+    lifePointsDino.value = lifepoints
+    display.value = 0;
+  }
   })
 
   buttonDinoHalf.addEventListener('click', () => {
@@ -113,3 +121,36 @@ buttonDinoRest.addEventListener('click', () => {
     lifePointsDino.value = lifePoints;
     display.value = 0;
     });
+
+  //oponent
+
+  buttonOpAdd.addEventListener('click', () => {
+    let lifepoints = parseInt(lifePointsOponent.value) + parseInt(temp);
+    lifePointsOponent.value = lifepoints
+    display.value = 0;
+    })
+    
+                //resta
+    buttonOpRest.addEventListener('click', () => {
+      let lifepoints = parseInt(lifePointsOponent.value) - parseInt(temp);
+      if(lifepoints <= 0) {
+        lifepoints = 0;
+        lifePointsOponent.value = lifepoints
+        display.value = 0;
+        alert('Los DinoFornicadores ganaron');
+      } else {
+    
+        lifePointsOponent.value = lifepoints
+        display.value = 0;
+      }
+      })
+    
+      buttonOpHalf.addEventListener('click', () => {
+        let lifePoints = parseInt(lifePointsOponent.value / 2);
+        if(lifePoints === 0) {
+          lifePoints = 1;
+        }
+        lifePointsOponent.value = lifePoints;
+        display.value = 0;
+        });
+    
