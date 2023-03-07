@@ -90,12 +90,26 @@ button000.addEventListener('click', () => {
 });
 
 // BOTONES OPERADORES POR PLAYER
-
+      //dinomorphia
+            //suma
 buttonDinoAdd.addEventListener('click', () => {
 let lifepoints = parseInt(lifePointsDino.value) + parseInt(temp);
-console.log(lifepoints);
 lifePointsDino.value = lifepoints
 display.value = 0;
-
 })
 
+            //resta
+buttonDinoRest.addEventListener('click', () => {
+  let lifepoints = parseInt(lifePointsDino.value) - parseInt(temp);
+  lifePointsDino.value = lifepoints
+  display.value = 0;
+  })
+
+  buttonDinoHalf.addEventListener('click', () => {
+    let lifePoints = parseInt(lifePointsDino.value / 2);
+    if(lifePoints === 0) {
+      lifePoints = 1;
+    }
+    lifePointsDino.value = lifePoints;
+    display.value = 0;
+    });
