@@ -83,6 +83,16 @@ function pushOperationDino(par) {
     let operation = registerOperation(par, temp);
     lifepointsLogDino.push(operation)
     console.log(lifepointsLogDino);
+    temp = 0;
+  }
+}
+
+function pushOperationOponent (par) {
+  if (temp !== 0) {
+    let operation = registerOperation(par, temp);
+    lifepointsLogOponent.push(operation);
+    console.log(lifepointsLogOponent);
+    temp = 0;
   }
 }
 
@@ -181,7 +191,6 @@ buttonDinoRest.addEventListener('click', () => {
     temp = lifePoints;
     pushOperationDino(operador);
     calculateAtkKentregina();
-    temp = 0;
     });
 
   //oponent
@@ -189,13 +198,16 @@ buttonDinoRest.addEventListener('click', () => {
 
       //suma
   buttonOpAdd.addEventListener('click', () => {
+    let operador = 'suma';
     let lifepoints = parseInt(lifePointsOponent.value) + parseInt(temp);
     lifePointsOponent.value = lifepoints
     display.value = "";
-    })
+    pushOperationOponent(operador);
+  })
     
                 //resta
   buttonOpRest.addEventListener('click', () => {
+    let operador = 'resta';
     let lifepoints = parseInt(lifePointsOponent.value) - parseInt(temp);
     if(lifepoints <= 0) {
       lifepoints = 0;
@@ -203,22 +215,25 @@ buttonDinoRest.addEventListener('click', () => {
       display.value = "";
       alert('Los DinoFornicadores ganaron');
       resetParcial();
-    } else {
-  
+      } else {
       lifePointsOponent.value = lifepoints
       display.value = "";
-    }
-    })
+      pushOperationOponent(operador);
+      }
+    });
   
     //half
     buttonOpHalf.addEventListener('click', () => {
+      let operador = 'half';
       let lifePoints = parseInt(lifePointsOponent.value / 2);
       if(lifePoints === 0) {
         lifePoints = 1;
       }
       lifePointsOponent.value = lifePoints;
       display.value = "";
-      });
+      temp = lifePoints;
+      pushOperationOponent(operador);
+    });
 
 // botones clear y back
 
@@ -249,8 +264,8 @@ display.value = 0;
 
   //BOTONES BACK Y RESET
 
-  buttonReset.addEventListener('click', resetParcial);
+buttonReset.addEventListener('click', resetParcial);
 
-  buttonBackDino.addEventListener('click', () => {
+buttonBackDino.addEventListener('click', () => {
 
-  })
+})
