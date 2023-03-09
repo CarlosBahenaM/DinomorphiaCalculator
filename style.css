@@ -90,6 +90,18 @@ button {
   display: flex;
   justify-content: space-around;
 }
+
+.punisher-contain {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 2vw;
+  justify-content: center;
+}
+
+.punisher {
+  width: 70%;
+}
+
 .dinomorphia-results > p {
   border: 1px solid green;
   width: 90%;
