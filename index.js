@@ -2,8 +2,8 @@ let temp = 0;
 let diffLifepoints = 0;
 let punisherAtk = 3500;
 let newPunisherAtk = punisherAtk + diffLifepoints;
-let lifepointsLogDino = [];
-let lifepointsLogOponent = [];
+let historyLpDino = [];
+let historyLpOponent = [];
 
 const registerOperation = (operacion, valor) => ({operacion, valor});
 
@@ -69,8 +69,8 @@ function resetParcial() {
     lifePointsDino.value = 8000;
     lifePointsOponent.value = 8000;
     newPunisherAtk = punisherAtk + diffLifepoints;
-    lifepointsLogDino = [];
-    lifepointsLogOponent = [];
+    historyLpDino = [];
+    historyLpOponent = [];
     display.value = '';
     KentreginaAtkResult.textContent = '';
     punisherAtkresult.textContent = '';
@@ -78,21 +78,18 @@ function resetParcial() {
 
 
 // funcion que registra las operaciones en el array para hacer un back
-function pushOperationDino(par) { 
-  if(temp !== 0) {
-    let operation = registerOperation(par, temp);
-    lifepointsLogDino.push(operation)
-    console.log(lifepointsLogDino);
-    temp = 0;
+function pushOperationDino() {
+  if(historyLpDino.length === 0 || lifePointsDino.value !== historyLpDino[historyLpDino.length - 1]){
+    historyLpDino.push(lifePointsDino.value);
+    console.log(historyLpDino);
   }
 }
 
-function pushOperationOponent (par) {
-  if (temp !== 0) {
-    let operation = registerOperation(par, temp);
-    lifepointsLogOponent.push(operation);
-    console.log(lifepointsLogOponent);
-    temp = 0;
+
+function pushOperationOponent() {
+  if(historyLpOponent.length === 0 || lifePointsOponent.value !== historyLpOponent[historyLpOponent.length - 1]){
+    historyLpOponent.push(lifePointsOponent.value);
+    console.log(historyLpOponent);  
   }
 }
 
@@ -150,21 +147,21 @@ button000.addEventListener('click', () => {
 });
 
 // BOTONES OPERADORES POR PLAYER
-      //dinomorphia
-            //suma
+
+
 buttonDinoAdd.addEventListener('click', () => {
   let operador = 'suma';
+  pushOperationDino();
   let lifepoints = parseInt(lifePointsDino.value) + parseInt(temp);
   lifePointsDino.value = lifepoints;
   calculateAtkKentregina();
-  pushOperationDino(operador)
 display.value = "";
 })
 
-            //resta
 buttonDinoRest.addEventListener('click', () => {
   let operador = 'resta';
-  let lifepoints = parseInt(lifePointsDino.value) - parseInt(temp);
+  pushOperationDino();
+  let lifepoints = Number(parseInt(lifePointsDino.value) - parseInt(temp));
   if(lifepoints <= 0) {
       lifepoints = 0;
       lifePointsDino.value = lifepoints;
@@ -172,16 +169,15 @@ buttonDinoRest.addEventListener('click', () => {
       alert('Ha perdido el Dinochato');
       resetParcial();
     } else {
-      
-      pushOperationDino(operador)
-      lifePointsDino.value = lifepoints
-      display.value = "";
+    lifePointsDino.value = lifepoints
+
+    display.value = "";
     }
     calculateAtkKentregina();
   })
 
-  buttonDinoHalf.addEventListener('click', () => {
-    let operador = 'half'
+buttonDinoHalf.addEventListener('click', () => {
+    pushOperationDino();
     let lifePoints = parseInt(lifePointsDino.value / 2);
     if(lifePoints === 0) {
       lifePoints = 1;
@@ -189,7 +185,6 @@ buttonDinoRest.addEventListener('click', () => {
     lifePointsDino.value = lifePoints;
     display.value = "";
     temp = lifePoints;
-    pushOperationDino(operador);
     calculateAtkKentregina();
     });
 
@@ -199,15 +194,16 @@ buttonDinoRest.addEventListener('click', () => {
       //suma
   buttonOpAdd.addEventListener('click', () => {
     let operador = 'suma';
+    pushOperationOponent();
     let lifepoints = parseInt(lifePointsOponent.value) + parseInt(temp);
     lifePointsOponent.value = lifepoints
     display.value = "";
-    pushOperationOponent(operador);
   })
     
                 //resta
   buttonOpRest.addEventListener('click', () => {
     let operador = 'resta';
+    pushOperationOponent();
     let lifepoints = parseInt(lifePointsOponent.value) - parseInt(temp);
     if(lifepoints <= 0) {
       lifepoints = 0;
@@ -218,22 +214,21 @@ buttonDinoRest.addEventListener('click', () => {
       } else {
       lifePointsOponent.value = lifepoints
       display.value = "";
-      pushOperationOponent(operador);
       }
     });
   
     //half
-    buttonOpHalf.addEventListener('click', () => {
-      let operador = 'half';
-      let lifePoints = parseInt(lifePointsOponent.value / 2);
-      if(lifePoints === 0) {
-        lifePoints = 1;
-      }
-      lifePointsOponent.value = lifePoints;
-      display.value = "";
-      temp = lifePoints;
-      pushOperationOponent(operador);
-    });
+  buttonOpHalf.addEventListener('click', () => {
+    let operador = 'half';
+    pushOperationOponent();
+    let lifePoints = parseInt(lifePointsOponent.value / 2);
+    if(lifePoints === 0) {
+      lifePoints = 1;
+    }
+    lifePointsOponent.value = lifePoints;
+    display.value = "";
+    temp = lifePoints;
+  });
 
 // botones clear y back
 
@@ -267,5 +262,21 @@ display.value = 0;
 buttonReset.addEventListener('click', resetParcial);
 
 buttonBackDino.addEventListener('click', () => {
+})
 
+buttonBackDino.addEventListener('click', () => {
+  let reverse = historyLpDino.pop();
+  if(reverse !== undefined){
+    lifePointsDino.value = Number(reverse);
+  }
+  calculateAtkKentregina();
+})
+
+    
+
+buttonBackOponent.addEventListener('click', () => {
+  let reverse = historyLpOponent.pop();
+  if(reverse !== undefined) {
+    lifePointsOponent.value = Number(reverse);
+  }
 })
