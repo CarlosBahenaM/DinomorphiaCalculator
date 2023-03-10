@@ -244,7 +244,14 @@ buttonDinoHalf.addEventListener('click', () => {
     temp = lifePoints;
   });
 
-// botones clear y back
+// botones clear y C
+
+buttonC.addEventListener('click', () => {
+  let valueModify = display.value.split('');
+  valueModify.pop();
+  display.value = valueModify.join('');
+  temp = display.value;
+})
 
 buttonClear.addEventListener('click', () => {
 display.value = "";
