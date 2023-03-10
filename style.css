@@ -142,7 +142,7 @@ button {
 
 /* letrero de derrota o perdida */
 
-.win-dinomorphia {
+.win-msg {
   background-color: #0f0f7ed1;
   position: absolute;
   width: 100%;
@@ -155,11 +155,11 @@ button {
   align-items: center;
   top: 0;
 }
-.win-dinomorphia > h3 {
+.win-msg > h3 {
   margin: 20px;
   color: white;
 }
-.win-dinomorphia > button {
+.win-msg > button {
   width: fit-content;
 } 
 .inactive {

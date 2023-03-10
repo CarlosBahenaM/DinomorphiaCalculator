@@ -21,6 +21,10 @@ const button0 = document.querySelector('.button-0');
 const button00 = document.querySelector('.button-00');
 const button000 = document.querySelector('.button-000');
 
+const winMsg = document.querySelector('.win-msg');
+const winMsgContent = document.querySelector('.win-msg_content');
+const buttonResetForWin = document.querySelector('.reset-for-win');
+
 const buttonKentreAtk = document.querySelector('.button-kentre-atk');
 const KentreginaAtkResult = document.querySelector('.dinomorphia-result__kentre');
 const buttonPunisherAtk = document.querySelector('.button-punisher-atk');
@@ -61,6 +65,18 @@ function calculateAtkKentregina() {
     newKentreginaAtk = 0;
   }
   KentreginaAtkResult.textContent = newKentreginaAtk;
+}
+
+function showMsgWin(player) {
+  switch (player) {
+    case 'dinomorphia':
+      winMsgContent.textContent = 'Ha ganado el dinochato, mirenlo, es todo un fornicador'
+      break;
+    case 'oponent':
+      winMsgContent.textContent = 'Le has ganado al dinochato, mirenlo, es todo un fornicador'
+      break;
+    }
+  winMsg.classList.remove('inactive');
 }
 
 function resetParcial() {
@@ -144,7 +160,6 @@ button00.addEventListener('click', () => {
 button000.addEventListener('click', () => {
   display.value += button000.textContent;
   temp = Number(display.value);
-  console.log(display.value);
 });
 
 // BOTONES OPERADORES POR PLAYER
@@ -160,15 +175,14 @@ display.value = "";
 })
 
 buttonDinoRest.addEventListener('click', () => {
-  let operador = 'resta';
+  let gg = 'dinomorphia';
   pushOperationDino();
   let lifepoints = Number(parseInt(lifePointsDino.value) - parseInt(temp));
   if(lifepoints <= 0) {
       lifepoints = 0;
       lifePointsDino.value = lifepoints;
       display.value = "";
-      alert('Ha perdido el Dinochato');
-      resetParcial();
+      showMsgWin(gg);
     } else {
     lifePointsDino.value = lifepoints
 
@@ -203,15 +217,14 @@ buttonDinoHalf.addEventListener('click', () => {
     
                 //resta
   buttonOpRest.addEventListener('click', () => {
-    let operador = 'resta';
+    let gg = 'oponent';
     pushOperationOponent();
     let lifepoints = parseInt(lifePointsOponent.value) - parseInt(temp);
     if(lifepoints <= 0) {
       lifepoints = 0;
       lifePointsOponent.value = lifepoints
       display.value = "";
-      alert('Los DinoFornicadores ganaron');
-      resetParcial();
+      showMsgWin(gg);
       } else {
       lifePointsOponent.value = lifepoints
       display.value = "";
@@ -285,4 +298,13 @@ buttonBackOponent.addEventListener('click', () => {
   if(reverse !== undefined) {
     lifePointsOponent.value = Number(reverse);
   }
+})
+
+
+
+//boton despues de victoria
+
+buttonResetForWin.addEventListener('click', () => {
+  resetParcial();
+  winMsg.classList.add('inactive');
 })
